@@ -33,6 +33,7 @@ public class Interaction : MonoBehaviour
     //Awake is executed before the Start method
     private void Awake()
     {
+
         //initialise singleton pattern
         if(Instance == null) 
         {
@@ -59,6 +60,9 @@ public class Interaction : MonoBehaviour
                 if (crosshair != null && crosshair.color != Color.green)
                 {
                     crosshair.color = Color.green;                  //set crosshair colour green
+
+
+                    
                 }
 
                 if (Input.GetButtonDown("Fire1") == true)           //if interaction input is pressed
@@ -79,6 +83,7 @@ public class Interaction : MonoBehaviour
                 if (crosshair != null && crosshair.color != Color.red)
                 {
                     crosshair.color = Color.red;            //set crosshair colour red
+                    
                 }
             }
         }

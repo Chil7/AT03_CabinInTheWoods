@@ -19,6 +19,9 @@ public class DigitalTooltip : InteractableObject
     private GameObject textObject; //should be a child of the image renderer object
     private AudioSource audioSource;
 
+    private TooltipText tooltipText;
+    private bool tooltipFound = true;
+
     //Awake is executed before the Start method
     private void Awake()
     {
@@ -40,6 +43,8 @@ public class DigitalTooltip : InteractableObject
                 Debug.LogWarning($"{imageRenderer.name} should have a UI Text as a child!");
             }
         }
+
+        tooltipText = FindObjectOfType<TooltipText>();
     }
 
     // Start is called before the first frame update
@@ -88,6 +93,11 @@ public class DigitalTooltip : InteractableObject
             if (audioSource != null && interactClip != null)
             {
                 audioSource.PlayOneShot(interactClip);
+            }
+            if (tooltipFound == true)
+            {
+                tooltipText.UpdateToolTipDisplay(1);
+                tooltipFound = false;
             }
             return true;
         }
